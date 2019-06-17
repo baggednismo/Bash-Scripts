@@ -1,4 +1,10 @@
 #!/bin/bash
+
+###################################################################################
+# This script will create a new laravel project in the specified projects folder. #
+# Material Dashboard will also be installed and configured.                       #
+###################################################################################
+
 BLUE='\033[0;34m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
@@ -20,8 +26,10 @@ echo -e "${BLUE}dumping composer autoload${NC}"
 composer dump-autoload
 
 echo -e "${BLUE}Copying the example .env${NC}"
-cp ${PROJECTPATH}$1/.env-example ${PROJECTPATH}$1/.env
+cp ${PROJECTPATH}$1/.env.example ${PROJECTPATH}$1/.env
 
 echo -e "${BLUE}Installation is complete.\nCreate your DB if you dont already have one.${NC}"
 
 echo -e "${BLUE}Once your .env is configured correctly dont forget\nto run: ${RED}php artisan migrate --seed${NC}"
+
+code ${PROJECTPATH}$1
